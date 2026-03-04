@@ -49,7 +49,7 @@ export const Navbar = () => {
 
                 {/* ─── CTA DESKTOP: bottone Telegram con particelle ── */}
                 <div className="hidden md:block">
-                    <a href="https://t.me/er_Mexico">Contact Me</a>
+                    <a href="https://t.me/er_Mexico" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-full text-sm font-medium glass border border-primary/40 text-primary hover:bg-primary/10 hover:border-primary/70 hover:shadow-[0_0_15px_rgba(32,178,166,0.25)] transition-all duration-300">Contact Me</a>
                 </div>
 
                 {/* ─── HAMBURGER MOBILE (nascosto su desktop) ── */}
@@ -83,7 +83,7 @@ export const Navbar = () => {
                     ))}
                     {/* CTA mobile con animazione particelle */}
                     <div className="mt-4">
-                        <a href="https://t.me/er_Mexico" onClick={closeMenu}>Contact Me</a>
+                        <a href="https://t.me/er_Mexico" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="px-5 py-2.5 rounded-full text-sm font-medium glass border border-primary/40 text-primary hover:bg-primary/10 hover:border-primary/70 hover:shadow-[0_0_15px_rgba(32,178,166,0.25)] transition-all duration-300">Contact Me</a>
                     </div>
                 </div>
             </nav>
