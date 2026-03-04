@@ -122,33 +122,6 @@ my_portfolio_FULL/
 
 ---
 
-## 🛠️ Come Iniziare
-
-### Prerequisiti
-- **Node.js** ≥ 18
-- **npm** ≥ 9
-
-### Installazione
-```bash
-# Clona il repo
-git clone https://github.com/Massimo-MDC/my_portfolio_FULL.git
-cd my_portfolio_FULL
-
-# Installa le dipendenze
-npm install
-
-# Avvia il dev server
-npm run dev
-```
-
-### Build per Produzione
-```bash
-npm run build
-npm run preview
-```
-
----
-
 ## 📫 Contatti
 
 - 💼 [LinkedIn](https://www.linkedin.com/in/massimo-di-caro/)
