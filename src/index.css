@@ -1,0 +1,151 @@
+/**
+ * index.css — Design System del portfolio.
+ *
+ * Definisce il tema colori, i font e la classe utility "glass"
+ * usata per l'effetto glassmorphism nelle card e nella navbar.
+ *
+ * Tailwind CSS v4 — i token sono dichiarati con @theme.
+ */
+
+@import "tailwindcss";
+
+/* ─── TEMA COLORI ─────────────────────────────────────── */
+@theme {
+  --color-background: #0f1418;
+  /* Sfondo principale (quasi nero) */
+  --color-foreground: #f0f2f5;
+  /* Testo principale (quasi bianco) */
+
+  --color-card: #141a1f;
+  /* Sfondo card */
+
+  --color-primary: #20b2a6;
+  /* Colore accento teal */
+  --color-primary-foreground: #ffffff;
+  /* Testo su sfondo primary */
+
+  --color-primary-bg: #1f2830;
+  /* Sfondo per badge primary */
+  --color-primary-bg-foreground: #20b2a6;
+  /* Testo su badge primary */
+
+  --color-muted: #252e37;
+  /* Sfondo elementi muted */
+  --color-muted-foreground: #7a8491;
+  /* Testo secondario/muted */
+
+  --color-border: #242b32;
+  /* Colore bordi */
+
+  --radius: 0.75rem;
+  /* Border radius di default */
+
+  --color-highlight: #f5a623;
+  /* Accento dorato (usato nel terminale) */
+  --color-surface: #1a2329;
+  /* Sfondo superfici elevate */
+}
+
+/* ─── STILI BASE ──────────────────────────────────────── */
+@layer base {
+
+  /* Scroll fluido quando si clicca un link #anchor */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Stile globale del body */
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: "Inter", sans-serif;
+    /* Font principale */
+  }
+
+  /* Nasconde il cursore di default su dispositivi con mouse
+     (il cursore custom GlowCursor lo sostituisce) */
+  @media (pointer: fine) {
+
+    *,
+    *::before,
+    *::after {
+      cursor: none !important;
+    }
+  }
+
+  /* Font serif per i titoli delle sezioni */
+  .font-serif {
+    font-family: "Playfair Display", serif;
+  }
+}
+
+/* ─── COMPONENTI RIUTILIZZABILI ───────────────────────── */
+@layer components {
+
+  /**
+   * .glass — Effetto glassmorphism.
+   * Sfondo semi-trasparente con blur, usato per card e navbar.
+   * color-mix() miscela il colore con trasparente al 50%.
+   */
+  .glass {
+    background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
+    backdrop-filter: blur(16px);
+    border: 1px solid color-mix(in srgb, var(--color-border), 50%, transparent);
+  }
+
+  /**
+   * .hero-grid — Griglia decorativa sottile per la sezione hero.
+   * Linee verticali e orizzontali molto trasparenti.
+   */
+  .hero-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  /**
+   * .skills-carousel-mask — Maschere sfumate ai bordi del carosello.
+   * Nasconde le pill che entrano/escono per un effetto più pulito.
+   * width: 100% impedisce overflow orizzontale su mobile.
+   */
+  .skills-carousel-mask {
+    width: 100%;
+    -webkit-mask-image: linear-gradient(to right,
+        transparent 0%,
+        black 6%,
+        black 94%,
+        transparent 100%);
+    mask-image: linear-gradient(to right,
+        transparent 0%,
+        black 6%,
+        black 94%,
+        transparent 100%);
+  }
+
+  /**
+   * .skills-carousel-track — Nastro scorrevole con animazione infinita.
+   * translateX scorre da 0 a -50% (metà, perché il contenuto è duplicato).
+   * Velocità più alta su mobile (12s) per uno scroll naturale.
+   */
+  .skills-carousel-track {
+    animation: skills-scroll 18s linear infinite;
+  }
+
+  @media (min-width: 640px) {
+    .skills-carousel-track {
+      animation-duration: 30s;
+    }
+  }
+}
+
+/* ─── KEYFRAMES ────────────────────────────────────────── */
+@keyframes skills-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
