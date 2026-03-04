@@ -64,7 +64,7 @@ export const Hero = () => {
                 <p className="max-w-lg text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed mb-10 md:mb-14 font-mono">
                     Studente di <span className="text-foreground font-semibold">Informatica</span> &amp; Full Stack Developer.
                     <br />
-                    Costruisco interfacce e sistemi che funzionano —
+                    Costruisco interfacce e sistemi —
                     <br className="hidden sm:block" />
                     dalla logica all'estetica.
                 </p>
