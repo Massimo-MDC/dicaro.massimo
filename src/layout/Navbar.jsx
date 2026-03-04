@@ -49,7 +49,7 @@ export const Navbar = () => {
 
                 {/* ─── CTA DESKTOP: bottone Telegram con particelle ── */}
                 <div className="hidden md:block">
-                    <ParticleButton href="https://t.me/er_Mexico">Contact Me</ParticleButton>
+                    <a href="https://t.me/er_Mexico">Contact Me</a>
                 </div>
 
                 {/* ─── HAMBURGER MOBILE (nascosto su desktop) ── */}
@@ -83,7 +83,7 @@ export const Navbar = () => {
                     ))}
                     {/* CTA mobile con animazione particelle */}
                     <div className="mt-4">
-                        <ParticleButton href="https://t.me/er_Mexico" onClick={closeMenu}>Contact Me</ParticleButton>
+                        <a href="https://t.me/er_Mexico" onClick={closeMenu}>Contact Me</a>
                     </div>
                 </div>
             </nav>
